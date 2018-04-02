@@ -22,6 +22,7 @@ stripe1 = cycle([Ye,Or])
 stripe2 = cycle([B,Cy])
 stripe3 = cycle([G,Tu])
 
+'''
 def MyBin(q):  # expects string
     Len = len(q)
     Str,Base = "",[ 8,4,2,1 ]
@@ -37,7 +38,7 @@ def MyBin(q):  # expects string
         Comp = ZZ*60 # ?
         Str = Comp + Bin
     for i in 
-
+'''
 # for i in 0→64, multiply i with the bin-list to get x,y ??
 
     
@@ -91,8 +92,8 @@ def gameLoop():
                         sense.clear(); quit()
 
                     score = int(((score**2) / time)*100)
-                    MyBin(str(score))
-                    #sense.show_message("Score  {}".format(score),text_colour=B)
+                    #MyBin(str(score))
+                    sense.show_message("Score  {}".format(score),text_colour=B)
                     sleep(4)
                     gameLoop()
             
