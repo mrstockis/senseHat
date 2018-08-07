@@ -1,4 +1,6 @@
 
+    # The Snake game, for senseHat
+
 from time import sleep
 from sense_hat import SenseHat
 from random import randint,choice
@@ -22,34 +24,15 @@ stripe1 = cycle([Ye,Or])
 stripe2 = cycle([B,Cy])
 stripe3 = cycle([G,Tu])
 
-'''
-def MyBin(q):  # expects string
-    Len = len(q)
-    Str,Base = "",[ 8,4,2,1 ]
-    for x,v in enumerate(q):
-        Bin,Dig = [],int(v)
-        for y,w in enumerate(Base):
-            if w <= Dig:
-                X = 7-(Len-x)
-                Y = 3+y
-                Bin.append([X,Y,G]
-                Dig -= w
-            else Bin += "0"
-        Comp = ZZ*60 # ?
-        Str = Comp + Bin
-    for i in 
-'''
-# for i in 0→64, multiply i with the bin-list to get x,y ??
-
+gameTime = 0.35
     
-def Paint(things): # a thing is a list of lists of x,y,col
-    sheet = [ ZZ for i in range(64) ]
-    for y in things:
-        for i in y:
+def Paint(things): # thing is a list of lists of x,y,col
+    picture = [ ZZ for i in range(64) ] # blank page
+    for thing in things:
+        for i in thing:
             y = i[0]+(i[1]*8)
-            sheet[y] = i[2]
-    return sheet
-
+            picture[y] = i[2]
+    return picture
 
 def Vector(headX,headY,ang):
     if ang == "right":
@@ -91,8 +74,7 @@ def gameLoop():
                         sleep(2)
                         sense.clear(); quit()
 
-                    score = int(((score**2) / time)*100)
-                    #MyBin(str(score))
+                    score = int(((score**2)/time)*100)
                     sense.show_message("Score  {}".format(score),text_colour=B)
                     sleep(4)
                     gameLoop()
@@ -105,8 +87,8 @@ def gameLoop():
             else: snake.pop(0)
             
             sense.set_pixels(Paint([apple,snake]))
-            time += 1
-            sleep(0.35)
+            time += gameTime
+            sleep(gameTime)
 
 
     except: KeyboardInterrupt
